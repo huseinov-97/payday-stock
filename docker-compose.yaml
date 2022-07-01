@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  db:
+    hostname: mysql
+    image: mysql:5.7
+    restart: always
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 314159
+    ports:
+      - 3307:3306
+  adminer:
+    hostname: mysql
+    image: adminer
+    restart: always
+    ports:
+      - 8580:8085
+
+volumes:
+  db_data:
+
