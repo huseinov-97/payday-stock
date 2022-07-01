@@ -52,9 +52,12 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public User register(RegisterRequest registerRequest, String siteURL) throws MessagingException, UnsupportedEncodingException {
 
-        User user = new User(registerRequest.getUsername(),
-                registerRequest.getEmail(),
-                passwordEncoder.encode(registerRequest.getPassword()));
+        User user = User.builder()
+                .username(registerRequest.getUsername())
+                .name(registerRequest.getName())
+                .email(registerRequest.getEmail())
+                .password(passwordEncoder.encode(registerRequest.getPassword()))
+                .build();
         Set<Role> roles = new HashSet<>();
 
         List<Role> roleList = roleRepository.findAll();
@@ -62,7 +65,6 @@ public class AuthServiceImpl implements AuthService {
             roleRepository.save(Role.builder().name(RoleEnum.CUSTOMER).build());
             roleRepository.save(Role.builder().name(RoleEnum.USER).build());
         }
-
 
         if (userRepository.existsByEmail(registerRequest.getEmail())) {
             throw new EmailAlreadyExistException();

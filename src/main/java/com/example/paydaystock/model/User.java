@@ -49,7 +49,6 @@ public class User {
 
     private String phoneNumber;
 
-    @ValidPassword
     private String password;
 
     @Email

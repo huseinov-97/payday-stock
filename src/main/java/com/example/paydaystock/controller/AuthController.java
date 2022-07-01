@@ -4,8 +4,10 @@ package com.example.paydaystock.controller;
 import com.example.paydaystock.resource.LoginRequest;
 import com.example.paydaystock.resource.RegisterRequest;
 import com.example.paydaystock.service.AuthService;
+import com.example.paydaystock.validation.ValidPassword;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +26,7 @@ public class AuthController {
     private final AuthService service;
 
     @PostMapping("/register")
-    public void registerUser(@Valid @RequestBody RegisterRequest registerRequest, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
+    public void registerUser(@RequestBody @Valid RegisterRequest registerRequest, HttpServletRequest request) throws MessagingException, UnsupportedEncodingException {
         service.register(registerRequest, getSiteURL(request));
     }
 

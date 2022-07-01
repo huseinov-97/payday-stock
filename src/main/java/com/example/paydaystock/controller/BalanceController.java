@@ -3,7 +3,7 @@ package com.example.paydaystock.controller;
 
 import com.example.paydaystock.config.UserContext;
 import com.example.paydaystock.resource.BalanceRequest;
-import com.example.paydaystock.service.DepositService;
+import com.example.paydaystock.service.BalanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +19,7 @@ import javax.validation.Valid;
 @RequiredArgsConstructor
 public class BalanceController {
 
-    private final DepositService service;
+    private final BalanceService service;
 
     @PutMapping
     public ResponseEntity<Void> addBalance(@RequestBody @Valid BalanceRequest balanceRequest) {

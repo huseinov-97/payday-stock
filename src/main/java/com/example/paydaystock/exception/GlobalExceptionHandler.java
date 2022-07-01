@@ -1,14 +1,20 @@
 package com.example.paydaystock.exception;
 
+import io.swagger.annotations.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 import lombok.var;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 
 import java.time.OffsetDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 
 @RestControllerAdvice

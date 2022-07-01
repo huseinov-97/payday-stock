@@ -1,6 +1,5 @@
 package com.example.paydaystock.resource;
 
-import com.example.paydaystock.validation.ValidPassword;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +17,5 @@ public class LoginRequest {
     private String email;
 
     @NotBlank
-    @ValidPassword
     private String password;
 }

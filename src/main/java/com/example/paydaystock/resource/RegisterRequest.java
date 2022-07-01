@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -18,7 +19,7 @@ import java.util.List;
 public class RegisterRequest {
 
     private String username;
-
+    private String name;
     private String phoneNumber;
 
     @NotBlank
@@ -26,8 +27,9 @@ public class RegisterRequest {
     @Email
     private String email;
 
+    @ValidPassword(message = "invalid")
+    @NotNull
     @NotBlank
-    @ValidPassword
     private String password;
 
     private List<String> authority;

@@ -6,7 +6,7 @@ import com.example.paydaystock.model.User;
 import com.example.paydaystock.repository.BalanceRepository;
 import com.example.paydaystock.repository.UserRepository;
 import com.example.paydaystock.resource.BalanceRequest;
-import com.example.paydaystock.service.DepositService;
+import com.example.paydaystock.service.BalanceService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
 @Service
 @RequiredArgsConstructor
-public class DepositServiceImpl implements DepositService {
+public class BalanceServiceImpl implements BalanceService {
 
     private final BalanceRepository balanceRepository;
     private final UserRepository userRepository;
